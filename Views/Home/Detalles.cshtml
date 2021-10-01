@@ -1,0 +1,53 @@
+@model Turismo.Models.PaisajeModel
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<style>
+    .contenedor{
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+</style>
+
+<div class="container">
+   <h2><u class="text-white">Lugar: @Model.Lugar</u></h2> 
+</div>
+
+<div class="row">
+    <div class="col-md-4 img-container">
+        <div class="img-big img-responsive">
+            <img src="/Image/@Model.ImageName" class="img-thumbnail">
+        </div>
+    </div>
+    <div class="col-md-8 text-white" >
+        <div class="row">            
+        <div class="col-md-6">
+            <h4>PAIS: @Model.paisModel.Nombre</h4>
+            <h6>PROVINCIA: @Model.provinciaModel.Nombre</h6>
+            <h6>CIUDAD: @Model.ciudadModel.Nombre</h6>
+            @for (int i = 0; i < @Model.Valoracion; i++)
+            {
+                <i class="fas fa-star text-warning"></i>
+            }
+        </div>
+        <div class="col-md-2 d-flex justify-content-end">
+            <img src="/Image/@Model.paisModel.ImageName" width="100" height="150" alt="" class="img-rounded">
+        </div> 
+        </div>
+    </div>
+</div>
+<div class="conteiner text-white">
+    <div class="row">
+        <div class="col-md-6">
+            <h5>
+                Descripción del lugar:
+            </h5>
+            <h6>
+                @Model.Descripcion
+            </h6>
+        </div>
+        <div class="col-md-6 d-flex justify-content-center">
+            <iframe src="@Model.Direccion" class="responsive-iframe" width="500" height="350" frameborder="0"></iframe>
+        </div>
+    </div>
+</div>

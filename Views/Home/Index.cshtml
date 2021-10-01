@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Turismo.Models.PaisajeModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    .page-header {
+        background: url(https://fondosmil.com/fondo/2261.jpg) no-repeat;
+        position: relative;
+        background-size: cover;
+    }
+
+    .page-caption {
+        padding-top: 170px;
+        padding-bottom: 174px;
+    }
+
+    .page-title {
+        font-size: 46px;
+        line-height: 1;
+        color: #fff;
+        font-weight: 600;
+        text-align: center;
+    }
+</style>
+
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="page-caption">
+                    <h1 class="page-title">Paisajes en el mundo</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="carouselMultiItemExample" class="carousel slide carousel-dark text-center" data-mdb-ride="carousel">
+
+    <div class="carousel-inner py-4">
+        <div class="carousel-item active">
+            <div class="container">
+                <div class="row">
+
+                    @foreach (var item in ViewBag.Pais)
+                    {
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <img src="/Image/@item.ImageName" class="rounded d-flex justify-content-center"  height="200"
+                                alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">@item.Lugar</h5>
+                                    <p class="card-text">
+
+                                        @for (int i = 0; i < item.Valoracion; i++)
+                                        {
+                                            <i class="fas fa-star text-warning"></i>
+                                        }
+                                        
+                                    </p>
+                                    <a  asp-action="Detalles" asp-route-id="@item.Id">Ver detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

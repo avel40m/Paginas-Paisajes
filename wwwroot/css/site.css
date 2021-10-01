@@ -1,0 +1,20 @@
+﻿.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    /* Vertically center the text there */
+}
+
+#tituloPais {
+    font-family: 'Gluten', cursive;
+    font-weight: 500;
+}
+
+.page-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    font-size: large;
+    font-style: oblique;
+}

@@ -1,0 +1,49 @@
+@model Turismo.Models.PaisajeModel
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<a asp-action="Index"><i class="fas fa-arrow-left"></i> Volver</a>
+
+<h4>Detalles</h4>
+<hr />
+<div class="container">
+    <div class="col-md-4">
+        <div class="row">
+            <dt class="col-md-2">
+                @Html.DisplayNameFor(model => model.paisModel.Nombre)
+            </dt>
+            <dd class="col-md-10">
+                @Html.DisplayFor(model => model.paisModel.Nombre)
+            </dd>
+            <dt class="col-md-2">
+                @Html.DisplayNameFor(model => model.provinciaModel.Nombre)
+            </dt>
+            <dd class="col-md-10">
+                @Html.DisplayFor(model => model.provinciaModel.Nombre)
+            </dd>
+            <dt class="col-md-2">
+                @Html.DisplayNameFor(model => model.ciudadModel.Nombre)
+            </dt>
+            <dd class="col-md-10">
+                @Html.DisplayFor(model => model.ciudadModel.Nombre)
+            </dd>
+            <dt class="col-md-2">
+                @Html.DisplayNameFor(model => model.Lugar)
+            </dt>
+            <dd class="col-md-10">
+                @Html.DisplayFor(model => model.Lugar)
+            </dd>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <dt class="col-md-2">
+            @Html.DisplayNameFor(model => model.ImageName)
+        </dt>
+        <dd class="col-md-10"> 
+            <img src="/Image/@Model.ImageName" width="200" alt="">
+        </dd>
+    </div>
+</div>  
+  

@@ -1,0 +1,56 @@
+@model IEnumerable<Turismo.Models.PaisajeModel>
+
+@{
+    ViewData["Title"] = "Paisajes";
+}
+<h4>Lista de paisajes</h4>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Lugar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ciudadModel.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.provinciaModel.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.paisModel.Nombre)
+            </th>
+            <th>
+                <a asp-action="Create" class="btn btn-success" title="Crear paisajes"><i class="fas fa-plus"></i></a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lugar)
+            </td>
+            <td>
+                <img src="/Image/@item.ImageName" width="100" height="100" class="rounded-circle">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ciudadModel.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.provinciaModel.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.paisModel.Nombre)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" title="Editar"><i class="fas fa-pencil-alt text-warning"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.Id" title="Información"><i class="fas fa-info"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.Id" title="Eliminar"><i class="fas fa-trash text-danger"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

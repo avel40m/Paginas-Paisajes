@@ -1,0 +1,21 @@
+@model IEnumerable<Turismo.Models.PaisajeModel>
+@{
+    ViewData["Title"] = "Argentina";
+}
+
+@foreach (var item in Model)
+{
+    <div class="container">
+        <div class="row  text-center">
+            <div class="col-md-6">
+                <img src="/Image/@item.ImageName" class="img-thumbnail" width="300" height="250" alt="">
+            </div>
+            <div class="col-md-6 bg-white">
+                <h3>@item.Lugar</h3>
+                <h6>@item.Descripcion</h6>
+                <a asp-action="Detalles" asp-route-id="@item.Id" class="btn btn-outline-dark">Ver detalles</a>
+            </div>
+        </div>
+    </div>
+    <br>
+}
